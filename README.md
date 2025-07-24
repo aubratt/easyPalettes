@@ -232,7 +232,17 @@ In the email instructions, the user is provided with a link to this page and is 
 After clicking "Reset Password" on password_reset_confirm.html, the user is taken to this page briefly before being redirected to the login screen. It confirms that the password reset was successful and informs the user that they are being redirected. This is the final step in Django’s default password reset flow.
 
 ## How to Run the App
+easyPalettes is deployed and live at https://easypalettes.onrender.com via [Render](https://render.com/). When you visit the site, you’ll land on the home page, greeted by a simple welcome message and clear calls to action. From here, you can explore the community’s creations by visiting the Browse page, or jump straight into making your own palettes on the Create page.
 
+On the Browse page, you can view palettes created by other users. Want to see the specific color codes for a palette? Just click the three-dot menu located at the bottom right of the palette and select “View Details.” If you find a palette you like, simply click the star icon to like it. Liking a palette will add it to your profile under the “Palettes Liked” section so you can revisit it anytime. Keep in mind, you’ll need to be logged in to like palettes or save palettes you create, so if you haven’t already, head to the Register page first. The Register link is available in the top right corner of the site, or in the bottom navigation menu after clicking the hamburger icon on smaller screens. Registration is straightforward, asking only for a username, email, and password.
+
+Once registered, you can start saving your creations. Head over to the Create page where you’ll be presented with a randomly generated palette to start with. If you like what you see, click the Save button in the top right corner. You’ll be prompted to name your palette, and then it will be saved to your profile.
+
+If you want more creative control, you can customize your palette in many ways. To randomize colors, use the “Select” dropdown menu to choose from 12 different randomization options, then hit the “Randomize” button. If you prefer to pick colors manually, simply click on a hex code to type a new one or use the color picker next to it. The color picker offers multiple ways to select colors: a color slider, a color dropper tool, and input boxes for RGB or HSL color codes. You can even switch between these color code formats by clicking the format name below the input boxes. Need to copy a color’s hex code to use elsewhere? Just hit the copy button next to the hex code.
+
+You can adjust the size of your palette too. Hover over a color to reveal buttons that allow you to add or remove colors, with a minimum of 2 colors and a maximum of 8 colors per palette. On mobile devices, these add/remove buttons are always visible, fixed to the screen for easy access without needing to hover. After you’re happy with your creation and have saved it, visit your Profile page to view all your saved palettes.
+
+Changed your mind or want to delete a palette? No problem. On your Profile page, click the three-dot menu on the bottom right of the palette you want to remove, and select “Delete palette.” 
 
 ---
 
