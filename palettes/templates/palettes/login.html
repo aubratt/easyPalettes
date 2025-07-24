@@ -1,0 +1,32 @@
+{% extends "palettes/layout.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    {% if next %}
+    <input type="hidden" name="next" value="{{ next }}">
+    {% endif %}
+    <div id="login-box" class="card bg-transparent mx-auto">
+        <div class="card-body">
+            <h2 class="acct-head text-center"> Login</h2>
+            <div class="mb-3">
+                <label for="username" class="form-label" style="color: #B7EB9B;">Username</label>
+                <input type="text" class="form-control acct-input" id="username" name="username">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label" style="color: #B7EB9B;">Password</label>
+                <input type="password" class="form-control acct-input" id="password" name="password">
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn mb-3" style="background-color: #B7EB9B; color:#444A53">Login</button>
+                <p class="mb-1" style="color: white">Forgot your password? <a href="{% url 'password_reset' %}"
+                        style="text-decoration: none; color:#B7EB9B">Reset password.</a></p>
+                <p class="mb-1" style="color: white">Don't have an account? <a href="{% url 'register' %}"
+                        style="text-decoration: none; color:#B7EB9B">Register here.</a></p>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

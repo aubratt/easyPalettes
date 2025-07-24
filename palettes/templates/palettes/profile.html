@@ -1,0 +1,144 @@
+{% extends "palettes/layout.html" %}
+
+{% block title %}{{ request.user.username }}{% endblock %}
+
+{% block content %}
+<div class="mt-4 mb-5">
+    <h1 class="text-center w-100" style="color: #B7EB9B; font-weight: bold;">{{ profile_user.username }}</h1>
+    <div class="d-flex d-inline-flex justify-content-center w-100">
+        <h3 id="showCreatedBtn" class="me-3" style="color: white; cursor: pointer;">{{ num_palettes }} palettes created</h3>
+        {% if profile_user == request.user %}
+        <h3 id="showLikedBtn" style="color: lightgray; cursor: pointer;">{{ num_liked }} palettes liked</h3>
+        {% endif %}
+    </div>
+</div>
+<div id="createdView" class="palette-grid mb-5 view active" data-total="{{ num_palettes }}">
+    {% for palette in palettes %}
+    <div class="palette" data-time="{{ palette.time|date:'c' }}" data-id="{{ palette.id }}">
+        <div class="color-strip d-flex">
+            {% for color in palette.colors %}
+            <div class="color-block"
+                style="background-color: {{ color }}; {% if forloop.first %}border-top-left-radius: 5px;{% endif %}{% if forloop.last %}border-top-right-radius: 5px;{% endif %}">
+            </div>
+            {% endfor %}
+        </div>
+        <div class="d-flex palette-footer align-items-center justify-content-between"
+            style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+            <p class="p-1 my-0 ms-2"><a href="{% url 'profile' palette.user.username %}" class="text-decoration-none"
+                    style="color: white;">{{ palette.user.username }}</a></p>
+            <div class="d-flex align-items-center">
+                <div class="d-flex d-inline-flex align-items-center justify-content-center">
+                    {% if palette.id in liked_palette_ids %}
+                    <i class="like-btn bi bi-star-fill me-2" style="cursor: pointer; color: white;"></i>
+                    {% else %}
+                    <i class="like-btn bi bi-star me-2" style="cursor: pointer; color: white;"></i>
+                    {% endif %}
+                </div>
+                <small class="d-flex align-items-center me-2 like-count" style="color: white;">0</small>
+                <i class="bi bi-three-dots me-2" data-bs-toggle="dropdown" aria-expanded="false"
+                    style="cursor: pointer; color: white;"></i>
+                <ul class="dropdown-menu" style="background-color: #444A53;">
+                    <li style="cursor: pointer;">
+                        <div class="d-flex d-inline-flex dropdown-item palette-dd view-details-btn">
+                            <i class="bi bi-info-circle mt-1 me-0 pe-2 view-details-btn" style="color: white;"></i>
+                            <a class="ms-0 ps-0 view-details-btn" style="font-style: normal; text-decoration: none; color: white;">View
+                                details</a>
+                        </div>
+                    </li>
+                    {% if palette.user == request.user %}
+                    <li style="cursor: pointer;">
+                        <div class="d-flex d-inline-flex dropdown-item palette-dd" data-palette-id="{{ palette.id }}"
+                            data-palette-name="{{ palette.name }}" data-bs-toggle="modal" data-bs-target="deleteModal">
+                            <i class="bi bi-trash mt-1 me-0 pe-2 delete-btn" data-palette-id="{{ palette.id }}"
+                                data-palette-name="{{ palette.name }}" style="color: red;"></i>
+                            <a class="ms-0 ps-0 delete-btn" data-palette-id="{{ palette.id }}"
+                                data-palette-name="{{ palette.name }}"
+                                style="font-style: normal; text-decoration: none; color: red;">Delete palette</a>
+                        </div>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: #36393F;">
+                <div class="modal-body pb-0">
+                    <p style="color: white;">Are you sure you want to delete this palette?</p>
+                    <button type="button" class="btn btn-danger mb-3 me-1" id="confirm-delete-btn">Delete
+                        palette</button>
+                    <button type="button" class="btn mb-3" data-bs-dismiss="modal"
+                        style="color: #f0f0f0; border: 1px solid #f0f0f0; background: transparent;">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div id="likedView" class="liked-grid mb-5 view" data-total="{{ num_liked }}">
+    {% for palette in liked_palettes %}
+    <div class="palette" data-time="{{ palette.time|date:'c' }}" data-id="{{ palette.id }}">
+        <div class="color-strip d-flex">
+            {% for color in palette.colors %}
+            <div class="color-block"
+                style="background-color: {{ color }}; {% if forloop.first %}border-top-left-radius: 5px;{% endif %}{% if forloop.last %}border-top-right-radius: 5px;{% endif %}">
+            </div>
+            {% endfor %}
+        </div>
+        <div class="d-flex palette-footer align-items-center justify-content-between"
+            style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+            <p class="p-1 my-0 ms-2"><a href="{% url 'profile' palette.user.username %}" class="text-decoration-none"
+                    style="color: white;">{{ palette.user.username }}</a></p>
+            <div class="d-flex align-items-center">
+                <div class="d-flex d-inline-flex align-items-center justify-content-center">
+                    {% if palette.id in liked_palette_ids %}
+                    <i class="like-btn bi bi-star-fill me-2" style="cursor: pointer; color: white;"></i>
+                    {% else %}
+                    <i class="like-btn bi bi-star me-2" style="cursor: pointer; color: white;"></i>
+                    {% endif %}
+                </div>
+                <small class="d-flex align-items-center me-2 like-count" style="color: white;">0</small>
+                <i class="bi bi-three-dots me-2" data-bs-toggle="dropdown" aria-expanded="false"
+                    style="cursor: pointer; color: white;"></i>
+                <ul class="dropdown-menu" style="background-color: #444A53;">
+                    <li style="cursor: pointer;">
+                        <div class="d-flex d-inline-flex dropdown-item palette-dd view-details-btn">
+                            <i class="bi bi-info-circle mt-1 me-0 pe-2 view-details-btn" style="color: white;"></i>
+                            <a class="ms-0 ps-0 view-details-btn" style="font-style: normal; text-decoration: none; color: white;">View
+                                details</a>
+                        </div>
+                    </li>
+                    {% if palette.user == request.user %}
+                    <li style="cursor: pointer;">
+                        <div class="d-flex d-inline-flex dropdown-item palette-dd" data-palette-id="{{ palette.id }}"
+                            data-palette-name="{{ palette.name }}" data-bs-toggle="modal" data-bs-target="deleteModal">
+                            <i class="bi bi-trash mt-1 me-0 pe-2 delete-btn" data-palette-id="{{ palette.id }}"
+                                data-palette-name="{{ palette.name }}" style="color: red;"></i>
+                            <a class="ms-0 ps-0 delete-btn" data-palette-id="{{ palette.id }}"
+                                data-palette-name="{{ palette.name }}"
+                                style="font-style: normal; text-decoration: none; color: red;">Delete palette</a>
+                        </div>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: #36393F;">
+                <div class="modal-body pb-0">
+                    <p style="color: white;">Are you sure you want to delete this palette?</p>
+                    <button type="button" class="btn btn-danger mb-3 me-1" id="confirm-delete-btn">Delete
+                        palette</button>
+                    <button type="button" class="btn mb-3" data-bs-dismiss="modal"
+                        style="color: #f0f0f0; border: 1px solid #f0f0f0; background: transparent;">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

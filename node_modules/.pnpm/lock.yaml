@@ -1,0 +1,39 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@dragdroptouch/drag-drop-touch':
+        specifier: ^2.0.3
+        version: 2.0.3
+      bootstrap-icons:
+        specifier: ^1.13.1
+        version: 1.13.1
+      d3-color:
+        specifier: ^3.1.0
+        version: 3.1.0
+
+packages:
+
+  '@dragdroptouch/drag-drop-touch@2.0.3':
+    resolution: {integrity: sha512-4Yv1+S2Yxs/5iYLZyZYobAlCvIJPN6TYBjvJDyI9kH30GfBxA+ffHgKK2l00EyyBlUpB10j8BWAbRsgXRtBbPw==}
+
+  bootstrap-icons@1.13.1:
+    resolution: {integrity: sha512-ijombt4v6bv5CLeXvRWKy7CuM3TRTuPEuGaGKvTV5cz65rQSY8RQ2JcHt6b90cBBAC7s8fsf2EkQDldzCoXUjw==}
+
+  d3-color@3.1.0:
+    resolution: {integrity: sha512-zg/chbXyeBtMQ1LbD/WSoW2DpC3I0mpmPdW+ynRTj/x2DAWYrIY7qeZIHidozwV24m4iavr15lNwIwLxRmOxhA==}
+    engines: {node: '>=12'}
+
+snapshots:
+
+  '@dragdroptouch/drag-drop-touch@2.0.3': {}
+
+  bootstrap-icons@1.13.1: {}
+
+  d3-color@3.1.0: {}

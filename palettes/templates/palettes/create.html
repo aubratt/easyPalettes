@@ -1,0 +1,76 @@
+{% extends "palettes/layout.html" %}
+
+{% block title %}Create{% endblock %}
+
+{% block content %}
+<form id="palette-form" method="POST" action="{% url 'create' %}" class="p-2 mb-2 rounded"
+    style="border: 1px solid #444A53; height: calc(100vh - 70px);">
+    {% csrf_token %}
+    <div class="d-flex align-items-start gap-2 mb-2">
+        <button class="btn btn-sm text-success-emphasis d-flex align-items-center justify-content-center save-btn"
+            style="padding: 0.475rem 0.75rem; background-color: #B7EB9B; color: #444A53;">
+            <i class="bi bi-floppy save-btn"></i>
+        </button>
+        <div class="btn-group dropdown randomizer-dropdown" role="group">
+            <button type="button" class="btn btn-sm dropdown-toggle" data-bs-toggle="dropdown"
+                style="background-color: #B7EB9B; color: #444A53; border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                Select...
+            </button>
+            <ul class="dropdown-menu" style="background-color: #444A53;">
+                <li><a id="default" data-mode="default" class="dropdown-item" style="cursor: pointer;">Default</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a id="monochrome" data-mode="monochrome" class="dropdown-item"
+                        style="cursor: pointer;">Monochrome</a></li>
+                <li><a id="complementary" data-mode="complementary" class="dropdown-item"
+                        style="cursor: pointer;">Complementary</a></li>
+                <li><a id="analogous" data-mode="analogous" class="dropdown-item" style="cursor: pointer;">Analogous</a>
+                </li>
+                <li><a id="split" data-mode="split" class="dropdown-item" style="cursor: pointer;">Split</a></li>
+                <li><a id="triadic" data-mode="triadic" class="dropdown-item" style="cursor: pointer;">Triadic</a></li>
+                <li><a id="square" data-mode="square" class="dropdown-item" style="cursor: pointer;">Square</a></li>
+                <li><a id="tetradic" data-mode="tetradic" class="dropdown-item" style="cursor: pointer;">Tetradic</a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a id="pastel" data-mode="pastel" class="dropdown-item" style="cursor: pointer;">Pastel</a></li>
+                <li><a id="vibrant" data-mode="vibrant" class="dropdown-item" style="cursor: pointer;">Vibrant</a></li>
+                <li><a id="neutral" data-mode="neutral" class="dropdown-item" style="cursor: pointer;">Neutral</a></li>
+                <li><a id="gradient" data-mode="gradient" class="dropdown-item" style="cursor: pointer;">Gradient</a>
+                </li>
+            </ul>
+            <button id="randomize-btn" type="button" class="btn btn-sm animated-gradient">
+                Randomize
+            </button>
+        </div>
+    </div>
+    <div class="modal fade" id="savePaletteModal" tabindex="-1" aria-labelledby="savePaletteModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: #36393F;">
+                <div class="modal-body">
+                    <div>
+                        <input id="palette-name" name="name" type="text" maxlength="50" class="form-control w-100 mb-2"
+                            placeholder="Palette Name" required>
+                    </div>
+                    <button type="submit" class="btn me-1" style="background-color: #B7EB9B; color: #444A53;">Save
+                        palette</button>
+                    <button type="button" class="btn" data-bs-dismiss="modal"
+                        style="color: #f0f0f0; border: 1px solid #f0f0f0; background: transparent;">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0">
+        <div id="palette-maker" class="flex-lg-row">
+
+            <!-- Color Columns -->
+
+            <input type="hidden" id="colors" name="colors">
+        </div>
+    </div>
+</form>
+{% endblock %}

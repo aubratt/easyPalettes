@@ -1,0 +1,25 @@
+{% extends "palettes/layout.html" %}
+
+{% block title %}Color Palettes{% endblock %}
+
+{% block content %}
+    <div class="d-flex align-items-center justify-content-center rounded" style="height: calc(100vh - 70px); border: 1px solid #444A53;">
+        <div style="max-width: 750px; padding: 1rem; text-align: center;">
+            <h1 style="color: #B7EB9B; margin-bottom: 1rem;">Color palettes have never been easier.</h1>
+            <p id="jumbo-p" style="color: white; margin-bottom: 2rem;">
+                With easyPalettes, you can build the perfect color scheme in seconds. Use one of 12 unique randomizers to
+                spark new ideas, or handpick each color to fine-tune your vision. Need inspiration? Head over to the Browse
+                page and explore what the community has created.
+            </p>
+
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{% url 'browse' %}" class="btn" style="color: #f0f0f0; border: 1px solid #f0f0f0; background: transparent;">
+                    Browse
+                </a>
+                <a href="{% url 'create' %}" class="btn" style="background-color: #B7EB9B; color: #444A53;">
+                    Create
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
