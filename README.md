@@ -237,20 +237,21 @@ After clicking "Reset Password" on password_reset_confirm.html, the user is take
 ---
 
 ## Moving Forward
-as this document highlights, easyPalettes is a simple yet effective tool that allows users to explore color, color combinations, and color theory in a satisfying way. it provides a space for people to be creative and get inspired. however, there is certainly lots of room for easyPalettes to improve and expand. 
+As this document highlights, easyPalettes is a simple yet effective tool that allows users to explore color, experiment with combinations, and engage with color theory in a satisfying and intuitive way. It provides a space for people to be creative and get inspired. While I’m proud of what it does now, I also see it as just the beginning. There’s a lot of room for growth—both in terms of practical features and creative possibilities—and I want easyPalettes to become something more than just a class project. I want it to be a real-world tool that’s useful, inspiring, and fun for anyone who works with color.
 
-Small qol things that should be implemented:
-- give users option to change username, email, and password
-- custom password reset process and design 
-- password complexity requirements
+There are a number of quality-of-life improvements I could implement to enhance the user experience and bring the app closer to modern standards. These include letting users change their username, email, or password directly from their account settings, designing a custom password reset process that feels consistent with the rest of the app, and adding password strength requirements for better security. I’d also like to improve the overall accessibility and performance of the app by optimizing the frontend, minimizing load times, and making sure the interface works as smoothly as possible across devices. These improvements may not be flashy, but they’re important for building a tool that people can trust and enjoy using regularly.
 
-In addition to quality of life improvements that should be made, there are also tons of features I want to add to easyPalettes to make it even more interactive, engaging, and informative.
+At the same time, I want to keep building on the creative and educational side of the app—adding new tools, features, and resources that help people understand and enjoy color on a deeper level. One idea I’m really excited about is a contrast checker, which would allow users to test color pairings for accessibility and legibility. I’d also love to create “practical use” demos that show how a palette might look in real-world contexts—like a sample website, branding mockup, or UI component—so users can better visualize how their palettes might actually be used.
 
-Features I want to implement:
-- color resources: color theory explained, color codes explained...
-- more detailed color information--maybe make a "profile" for every possible hex color with information that mimics a nutrition label and tags that categorize colors
-- search for palettes with certain tags or search by some other metric--a full filter and search system
-- more profile information/statistics and more engaging features like achievements, badges, etc. 
+I also see a lot of potential in turning easyPalettes into a place to learn about color. I’d like to build out a set of resources that explain color theory concepts, decoding things like complementary colors, triadic schemes, color temperature, and lightness/saturation in a way that’s digestible and visually supported. I imagine an interactive color theory guide that makes it fun to explore ideas and even a searchable library of every hex code, with filters, tags, and breakdowns that help users discover new colors or understand what makes a certain shade feel bold, calm, clean, or retro.
+
+In fact, I think every hex color deserves its own profile page—something styled like a “nutrition label” that shows RGB/HSL conversions, relative brightness, accessibility info, and maybe even popular pairings or tags based on usage. I’d also like to add optional metadata to each palette, like tags or color names, to make them searchable. With that in place, I could add a full search system where users can find palettes based on dominant hues, style tags (e.g., “earthy,” “vibrant,” “minimalist”), brightness level, or other attributes.
+
+On the user side, I’d love to expand profiles to be more fun and interactive. There could be optional achievements or badges tied to exploration—for example, building palettes using every randomizer mode, saving your 10th palette, or receiving a certain number of likes. These kinds of features add a layer of personal engagement that turns easyPalettes from a simple tool into a more immersive experience.
+
+There are also practical additions I’m considering, like the ability to export palettes in different formats—PNG image, CSS variables, or even JSON—to make them easier to use in design workflows. Users could eventually import palettes too, either by pasting in hex codes or uploading from other tools. Long-term, I’d love to let users create collections of palettes, remix palettes made by others, or even collaborate with friends on shared color sets.
+
+Ultimately, I don’t want easyPalettes to be just a generator. I want it to be a creative space, a learning tool, and a design companion. It should be a place where anyone—from a brand designer to a beginner messing around with color—can find inspiration, build something meaningful, and walk away feeling more confident in their creative decisions. The project already stands on its own as a functional, polished tool—but I see a lot more possibility ahead, and I’m excited to keep building toward that vision.
 
 ---
 
