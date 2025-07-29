@@ -1,0 +1,28 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>{{ cat|title }}</h2>
+
+    <p>{{ message }}</p>
+
+    <div class="container-fluid">
+            <div class="row">
+                {% for listing in listings %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            {% if listing.image %}
+                                <img class="card-img-top" style="align-items: center; max-width: 100%; max-height: 500px; height: auto; width: auto; object-fit: contain;" src="{{ listing.image }}" alt="Product Image">
+                            {% else %}
+                                <img style="align-items: center; max-width: 100%; max-height: 500px; height: auto; width: auto; object-fit: contain;" src="https://static.vecteezy.com/system/resources/previews/022/014/063/original/missing-picture-page-for-website-design-or-mobile-app-design-no-image-available-icon-vector.jpg" alt="Default Image">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ listing.title }}</h5>
+                                <p class="card-text" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ listing.description }}</p>
+                                <a href="{% url 'listing' listing.slug %}" class="btn btn-primary">View Listing</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}
