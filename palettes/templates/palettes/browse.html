@@ -46,8 +46,8 @@
                         </li>
                         {% if palette.user == request.user %}
                         <li style="cursor: pointer;">
-                            <div class="d-flex d-inline-flex dropdown-item palette-dd" data-palette-id="{{ palette.id }}"
-                                data-palette-name="{{ palette.name }}" data-bs-toggle="modal" data-bs-target="deleteModal">
+                            <div class="d-flex d-inline-flex dropdown-item palette-dd delete-btn" data-palette-id="{{ palette.id }}"
+                                data-palette-name="{{ palette.name }}" data-bs-target="deleteModal">
                                 <i class="bi bi-trash mt-1 me-0 pe-2 delete-btn" data-palette-id="{{ palette.id }}"
                                     data-palette-name="{{ palette.name }}" style="color: red;"></i>
                                 <a class="ms-0 ps-0 delete-btn" data-palette-id="{{ palette.id }}"

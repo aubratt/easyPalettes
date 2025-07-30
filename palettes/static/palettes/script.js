@@ -2267,8 +2267,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const modalEl = document.getElementById('deleteModal');
             const paletteId = modalEl.dataset.pendingDeleteBtnId;
 
+            console.log('modalEl:', modalEl);
+            console.log('paletteId:', paletteId);
+
             if (paletteId) {
-                const paletteEl = document.querySelector(`.palette[data-palette-id="${paletteId}"]`);
+                const paletteEl = document.querySelector(`.palette[data-id="${paletteId}"]`);
+
+                console.log('paletteEl:', paletteEl);
+
                 if (paletteEl) {
                     deletePalette.call(paletteEl.querySelector('.delete-btn'));
                 }
