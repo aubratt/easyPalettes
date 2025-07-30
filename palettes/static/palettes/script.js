@@ -1932,20 +1932,20 @@ function buildPaletteHTML(palette, requestUserId) {
 
         const deletePaletteDiv = document.createElement('div');
         deletePaletteDiv.classList.add('d-flex', 'd-inline-flex', 'dropdown-item', 'palette-dd');
-        deletePaletteDiv.setAttribute('data-palette-id', palette.id);
+        deletePaletteDiv.setAttribute('data-id', palette.id);
         deletePaletteDiv.setAttribute('data-palette-name', palette.name);
         deletePaletteDiv.setAttribute('data-bs-toggle', 'modal');
         deletePaletteDiv.setAttribute('data-bs-target', 'deleteModal');
 
         const deletePaletteIcon = document.createElement('i');
         deletePaletteIcon.classList.add('bi', 'bi-trash', 'mt-1', 'me-0', 'pe-2', 'delete-btn');
-        deletePaletteIcon.setAttribute('data-palette-id', palette.id);
+        deletePaletteIcon.setAttribute('data-id', palette.id);
         deletePaletteIcon.setAttribute('data-palette-name', palette.name);
         deletePaletteIcon.style.color = 'red';
 
         const deletePaletteLink = document.createElement('a');
         deletePaletteLink.classList.add('ms-0', 'ps-0', 'delete-btn');
-        deletePaletteLink.setAttribute('data-palette-id', palette.id);
+        deletePaletteLink.setAttribute('data-id', palette.id);
         deletePaletteLink.setAttribute('data-palette-name', palette.name);
         deletePaletteLink.style.fontStyle = 'normal';
         deletePaletteLink.style.textDecoration = 'none';
